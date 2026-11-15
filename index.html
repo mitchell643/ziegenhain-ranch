@@ -107,7 +107,13 @@
   .brand { background: var(--navy); color: var(--cream); }
   .brand h2 { color: var(--cream); }
   .brand .eyebrow { color: var(--gold); }
-  .brand img.hide { border-radius: 6px; border: 1px solid rgba(201,162,74,.5); }
+  .brand-art {
+    background: var(--cream); border-radius: 6px; padding: 40px;
+    display: flex; justify-content: center; align-items: center;
+    border: 2px solid var(--gold);
+    box-shadow: inset 0 0 0 6px var(--cream), inset 0 0 0 7px rgba(138,106,42,.45);
+  }
+  .brand-art img { height: 300px; width: auto; }
 
   .contact { text-align: center; }
   .contact .rule { margin: 0 auto 28px; }
@@ -209,7 +215,9 @@
         <hr class="rule">
         <p>Our brand is the sword alone, a simple mark that honors the swordsmiths in our family line. It will be the sign of Ziegenhain cattle for years to come.</p>
       </div>
-      <img class="hide" src="images/brand-iron-on-hide.png" alt="The Ziegenhain sword brand shown on hide">
+      <figure class="brand-art" style="margin:0">
+        <img src="images/brand-iron-navy.svg" alt="The Ziegenhain sword brand">
+      </figure>
     </div>
   </section>
 
