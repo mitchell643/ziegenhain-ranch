@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ziegenhain Ranch · Hico, Texas</title>
+<meta name="description" content="Ziegenhain Ranch is a family cattle ranch in Hico, Hamilton County, Texas.">
+<link rel="icon" type="image/svg+xml" href="images/app-icon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="images/app-icon-192.png">
+<link rel="apple-touch-icon" href="images/app-icon-square-180.png">
+<meta property="og:title" content="Ziegenhain Ranch">
+<meta property="og:description" content="A family cattle ranch in Hico, Texas.">
+<meta property="og:image" content="images/app-icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14233a;
+    --navy-deep: #0d1828;
+    --cream: #efe9dd;
+    --paper: #f6f2e9;
+    --gold: #c9a24a;
+    --gold-dark: #8a6a2a;
+    --ink: #1c2533;
+    --muted: #5b6472;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Serif", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+  }
+  a { color: var(--gold-dark); }
+  img { max-width: 100%; display: block; }
+
+  /* Header */
+  header.bar {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--navy-deep);
+    border-bottom: 1px solid rgba(201,162,74,.35);
+  }
+  .bar-inner {
+    max-width: 1100px; margin: 0 auto; padding: 10px 20px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .bar-inner img { height: 44px; width: auto; }
+  nav a {
+    color: var(--cream); text-decoration: none;
+    font-size: 14px; letter-spacing: .18em; text-transform: uppercase;
+    margin-left: 22px;
+  }
+  nav a:hover { color: var(--gold); }
+
+  /* Hero */
+  .hero {
+    background: var(--navy-deep);
+    color: var(--cream);
+    text-align: center;
+    padding: 24px 20px 72px;
+  }
+  .hero img.crest { width: min(420px, 82vw); margin: 0 auto -20px; }
+  .hero h1 {
+    margin: 0; font-size: clamp(36px, 7vw, 64px);
+    letter-spacing: .08em; font-weight: 700;
+  }
+  .hero .sub {
+    color: var(--gold); letter-spacing: .32em; text-transform: uppercase;
+    font-size: clamp(13px, 2.4vw, 17px); margin-top: 6px;
+  }
+  .hero p.lede { max-width: 620px; margin: 28px auto 0; color: #d9d3c6; }
+
+  /* Sections */
+  section { padding: 80px 20px; }
+  .wrap { max-width: 1000px; margin: 0 auto; }
+  .eyebrow {
+    color: var(--gold-dark); letter-spacing: .3em; text-transform: uppercase;
+    font-size: 13px; margin: 0 0 8px;
+  }
+  h2 { font-size: clamp(28px, 4.5vw, 40px); margin: 0 0 20px; color: var(--navy); line-height: 1.2; }
+  .rule { width: 64px; height: 3px; background: var(--gold); margin: 0 0 28px; border: 0; }
+
+  .two { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
+  .story-art {
+    background: var(--navy); border-radius: 6px; padding: 40px;
+    display: flex; justify-content: center; align-items: center;
+    border: 1px solid var(--gold);
+  }
+  .story-art img { height: 300px; width: auto; }
+  .story-art figcaption { color: var(--cream); }
+
+  .alt { background: var(--cream); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 12px; }
+  .card {
+    background: var(--paper); border-top: 4px solid var(--gold);
+    padding: 26px 24px; border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(20,35,58,.08);
+  }
+  .card h3 { margin: 0 0 8px; color: var(--navy); font-size: 21px; }
+  .card p { margin: 0; color: var(--muted); font-size: 16px; }
+  .card .num { font-size: 42px; color: var(--gold-dark); font-weight: 700; line-height: 1; margin-bottom: 8px; }
+
+  .brand { background: var(--navy); color: var(--cream); }
+  .brand h2 { color: var(--cream); }
+  .brand .eyebrow { color: var(--gold); }
+  .brand img.hide { border-radius: 6px; border: 1px solid rgba(201,162,74,.5); }
+
+  .contact { text-align: center; }
+  .contact .rule { margin: 0 auto 28px; }
+  .contact-list { list-style: none; padding: 0; margin: 0 auto; max-width: 520px; }
+  .contact-list li { padding: 14px 0; border-bottom: 1px solid rgba(20,35,58,.12); }
+  .contact-list strong { display: block; font-size: 13px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+  .btn {
+    display: inline-block; margin-top: 32px; padding: 14px 32px;
+    background: var(--navy); color: var(--cream); text-decoration: none;
+    letter-spacing: .2em; text-transform: uppercase; font-size: 14px;
+    border: 1px solid var(--gold); border-radius: 3px;
+  }
+  .btn:hover { background: var(--navy-deep); color: var(--gold); }
+
+  footer {
+    background: var(--navy-deep); color: #a9b0bb; text-align: center;
+    padding: 40px 20px; font-size: 14px;
+  }
+  footer img { height: 70px; width: auto; margin: 0 auto 14px; }
+
+  @media (max-width: 760px) {
+    nav a { margin-left: 14px; font-size: 12px; letter-spacing: .1em; }
+    .bar-inner img { height: 34px; }
+    .two { grid-template-columns: 1fr; gap: 32px; }
+    .cards { grid-template-columns: 1fr; }
+    section { padding: 56px 16px; }
+  }
+  @media (max-width: 420px) {
+    nav a:first-child { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner">
+    <a href="#top" aria-label="Ziegenhain Ranch home"><img src="images/ziegenhain-horizontal-navy.svg" alt="Ziegenhain Ranch"></a>
+    <nav>
+      <a href="#story">Our Story</a>
+      <a href="#ranch">The Ranch</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <h1 style="position:absolute;left:-9999px">Ziegenhain Ranch, Hico, Texas</h1>
+    <img class="crest" src="images/ziegenhain-logo-on-navy.svg" alt="Ziegenhain Ranch crest: a Z with a sword through it, the letter K in the pommel">
+    <p class="lede">A family cattle ranch in the hills of Hamilton County, carrying an old German name to new ground in Texas.</p>
+  </div>
+
+  <section id="story">
+    <div class="wrap two">
+      <div>
+        <p class="eyebrow">Our Story</p>
+        <h2>A name from the old country</h2>
+        <hr class="rule">
+        <p>Ziegenhain is a town in Germany where the Knauf family once made their home. Generations later, that name has found a new place on a ranch outside Hico, Texas.</p>
+        <p>The Knaufs were Bavarian swordsmiths, and the family name itself means the pommel of a sword. That history is worked into the ranch crest: a <em>Z</em> for Ziegenhain, a sword driven through it, and a <em>K</em> set in the pommel for Knauf.</p>
+        <p>The ranch was established in 2026, and the work of building it is just getting started.</p>
+      </div>
+      <figure class="story-art" style="margin:0">
+        <img src="images/brand-iron.svg" alt="The Ziegenhain Ranch sword brand">
+      </figure>
+    </div>
+  </section>
+
+  <section id="ranch" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">The Ranch</p>
+      <h2>Starting small, building right</h2>
+      <hr class="rule">
+      <div class="cards">
+        <div class="card">
+          <div class="num">2026</div>
+          <h3>Established</h3>
+          <p>A new ranch with deep family roots, set up to grow one season at a time.</p>
+        </div>
+        <div class="card">
+          <div class="num">6</div>
+          <h3>First herd</h3>
+          <p>Our first six head of cattle are on their way. Every herd starts somewhere.</p>
+        </div>
+        <div class="card">
+          <div class="num">TX</div>
+          <h3>Hico, Texas</h3>
+          <p>Hamilton County, in the heart of Central Texas cattle country.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brand">
+    <div class="wrap two">
+      <div>
+        <p class="eyebrow">The Brand</p>
+        <h2>The sword of the Knaufs</h2>
+        <hr class="rule">
+        <p>Our brand is the sword alone, a simple mark that honors the swordsmiths in our family line. It will be the sign of Ziegenhain cattle for years to come.</p>
+      </div>
+      <img class="hide" src="images/brand-iron-on-hide.png" alt="The Ziegenhain sword brand shown on hide">
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow">Get in Touch</p>
+      <h2>Contact the ranch</h2>
+      <hr class="rule">
+      <ul class="contact-list">
+        <li><strong>Location</strong>Hico, Hamilton County, Texas</li>
+        <li><strong>Email</strong><a href="mailto:info@ziegenhainranch.com">info@ziegenhainranch.com</a></li>
+      </ul>
+      <a class="btn" href="mailto:info@ziegenhainranch.com">Send us a note</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="images/app-icon.svg" alt="">
+  <div>© <span id="yr">2026</span> Ziegenhain Ranch · Hico, Texas</div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
